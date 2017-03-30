@@ -1,3 +1,4 @@
 language: csharp
+solution: Pets.sln
 mono:
   - 4.8.0
