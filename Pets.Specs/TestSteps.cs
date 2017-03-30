@@ -12,7 +12,7 @@ namespace Pets.Specs
 	public class TestSteps
 	{
 		readonly IPersonRepository personRepository = new InMemoryPersonRepositoryAdapter();
-		readonly IProductRepository productRepository = new InMemoryProductRepositoryAdapter();
+		readonly IFoodItemRepository foodItemRepository = new InMemoryFoodItemRepositoryAdapter();
 
 		[Given(@"I have a Person called ""(.*)""")]
 		public void GivenIHaveAPersonCalled(string name)
@@ -20,71 +20,70 @@ namespace Pets.Specs
 			personRepository.Save(new Person(name));
 		}
 
-		[Given(@"I have a (.*) product with the SKU (.*) called ""(.*)""")]
-		public void GivenIHaveAProductWithTheSKUCalled(string productType, int sku, string name)
+		[Given(@"I have a Food Item with the SKU (.*) called ""(.*)""")]
+		public void GivenIHaveAFoodItemWithTheSKUCalled(int sku, string name)
 		{
-			Product product = new Product(sku, name, (Product.ProductType)Enum.Parse(typeof(Product.ProductType), productType, true));
-			productRepository.Save(product);
+			FoodItem foodItem = new FoodItem(sku, name);
+			foodItemRepository.Save(foodItem);
 		}
 
-
-		[Given(@"""(.*)"" has no favorited products")]
-		public void GivenSomeoneHasNoFavoritedProducts(string customerName)
+		[Given(@"""(.*)"" has no favorited Food Items")]
+		public void GivenSomeoneHasNoFavoritedFoodItems(string customerName)
 		{
 		}
 
-		[When(@"""(.*)"" tries to favorite the product (.*)")]
-		public void WhenSomeoneTriesToFavoriteTheProduct(string name, int sku)
+		[When(@"""(.*)"" tries to favorite the Food Item (.*)")]
+		public void WhenSomeoneTriesToFavoriteTheFoodItem(string name, int sku)
 		{
-			var personCandidate = personRepository.FindPersonWithName(name);
-			var productCandidate = productRepository.FindProductWithSku(sku);
+			var person = personRepository.FindPersonWithName(name);
+			var foodItem = foodItemRepository.FindFoodItemWithSku(sku);
 			try
 			{
-				personCandidate.FavoriteProduct(productCandidate);
+				person.Favorite(foodItem);
 			}
 			catch(ArgumentException) { };
 		}
 
 
-		[Then(@"""(.*)"" should have (.*) favorited products")]
-		public void ThenSomeoneShouldHaveFavoritedProducts(string name, int expectedFavoriteCount)
+		[Then(@"""(.*)"" should have (.*) favorited Food Items")]
+		public void ThenSomeoneShouldHaveFavoritedFoodItems(string name, int expectedFavoriteCount)
 		{
 			var personCandidate = personRepository.FindPersonWithName(name);
 			Assert.AreEqual(expectedFavoriteCount, personCandidate.Favorites.Count);
 		}
 
-		[Given(@"""(.*)"" has favorited the product (.*)")]
+		[Given(@"""(.*)"" has favorited the Food Item (.*)")]
 		public void GivenSomeoneHasFavorited(string name, int sku)
 		{
-			var personCandidate = personRepository.FindPersonWithName(name);
-			var productCandidate = productRepository.FindProductWithSku(sku);
-			personCandidate.FavoriteProduct(productCandidate);
+			var person = personRepository.FindPersonWithName(name);
+			var foodItem = foodItemRepository.FindFoodItemWithSku(sku);
+			person.Favorite(foodItem);
 		}
 
-		[When(@"""(.*)"" favorites the product (.*)")]
-		public void WhenSomeoneFavoritesTheProduct(string name, int sku)
+		[When(@"""(.*)"" favorites the Food Item (.*)")]
+		public void WhenSomeoneFavoritesTheFoodItem(string name, int sku)
 		{
-			var personCandidate = personRepository.FindPersonWithName(name);
-			var productCandidate = productRepository.FindProductWithSku(sku);
-			personCandidate.FavoriteProduct(productCandidate);
+			var person = personRepository.FindPersonWithName(name);
+			var foodItem = foodItemRepository.FindFoodItemWithSku(sku);
+			person.Favorite(foodItem);
 		}
 
-		[When(@"""(.*)"" unfavorites the product (.*)")]
-		public void WhenUnfavoritesTheFoodProduct(string name, int sku)
+		[When(@"""(.*)"" unfavorites the Food Item (.*)")]
+		public void WhenUnfavoritesTheFoodItem(string name, int sku)
 		{
-			var personCandidate = personRepository.FindPersonWithName(name);
-			var productCandidate = productRepository.FindProductWithSku(sku);
-			personCandidate.UnFavoriteProduct(productCandidate);
+			var person = personRepository.FindPersonWithName(name);
+			var foodItem = foodItemRepository.FindFoodItemWithSku(sku);
+			person.UnFavorite(foodItem);
 		}
 
-		[When(@"""(.*)"" tries to unfavorite the product (.*)")]
-		public void WhenSomeoneTriesToUnfavoriteTheFoodProduct(string name, int sku)
+		[When(@"""(.*)"" tries to unfavorite the Food Item (.*)")]
+		public void WhenSomeoneTriesToUnfavoriteTheFoodItem(string name, int sku)
 		{
-			var personCandidate = personRepository.FindPersonWithName(name);
-			var productCandidate = productRepository.FindProductWithSku(sku);
+			var person = personRepository.FindPersonWithName(name);
+			var foodItem = foodItemRepository.FindFoodItemWithSku(sku);
 			try
 			{
-				personCandidate.UnFavoriteProduct(productCandidate);
+				person.UnFavorite(foodItem);
 			}
 			catch (ArgumentException) { };
 		}

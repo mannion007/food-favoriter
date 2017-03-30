@@ -1,8 +1,8 @@
 ﻿namespace FoodFavoriter.Domain
 {
-	public interface IProductRepository
+	public interface IFoodItemRepository
 	{
-		Product FindProductWithSku(int sku);
-		void Save(Product product);
+		FoodItem FindFoodItemWithSku(int sku);
+		void Save(FoodItem foodItem);
 	}
 }

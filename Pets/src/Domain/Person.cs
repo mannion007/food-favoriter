@@ -7,36 +7,31 @@ namespace FoodFavoriter.Domain
 	{
 		public string Name { get; private set; }
 
-		public List<Product> Favorites = new List<Product> { };
+		public List<FoodItem> Favorites = new List<FoodItem> { };
 
 		public Person(string name)
 		{
 			Name = name;
 		}
 
-		public void FavoriteProduct(Product product)
+		public void Favorite(FoodItem foodItem)
 		{
-			if (!product.Category.Equals(Product.ProductType.Food))
-			{
-				throw new ArgumentException("Can only favorite products from the Food category");
-			}
-
-			if (Favorites.Contains(product))
+			if (Favorites.Contains(foodItem))
 			{
 				throw new ArgumentException("Cannot favorite an product that is already in favorites");
 			}
 
-			Favorites.Add(product);
+			Favorites.Add(foodItem);
 		}
 
-		public void UnFavoriteProduct(Product product)
+		public void UnFavorite(FoodItem foodItem)
 		{
-			if (!Favorites.Contains(product))
+			if (!Favorites.Contains(foodItem))
 			{
 				throw new ArgumentException("Cannot unfavorite an item that is not in favorites");
 			}
 
-			Favorites.Remove(product);
+			Favorites.Remove(foodItem);
 		}
 	}
 }

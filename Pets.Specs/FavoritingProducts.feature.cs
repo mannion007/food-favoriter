@@ -18,8 +18,8 @@ namespace FoodFavoriter.Specs
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Favoriting Products")]
-    public partial class FavoritingProductsFeature
+    [NUnit.Framework.DescriptionAttribute("Favoriting Food Items")]
+    public partial class FavoritingFoodItemsFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -31,7 +31,7 @@ namespace FoodFavoriter.Specs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Favoriting Products", "\tIn order to be able to find the food I buy often quickly\n\tAs a Customer\n\tI want to be able Favorite the foods I enjoy", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Favoriting Food Items", "\tIn order to be able to easily find the Food Items I like to buy regularly\n\tAs a Customer\n\tI want to be able to maintain a list of Favorite Food Items", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -64,131 +64,110 @@ namespace FoodFavoriter.Specs
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Favoriting a product")]
-        public virtual void FavoritingAProduct()
+        [NUnit.Framework.DescriptionAttribute("Favoriting a Food Item")]
+        public virtual void FavoritingAFoodItem()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Favoriting a product", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Favoriting a Food Item", ((string[])(null)));
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
  testRunner.Given("I have a Person called \"James\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
- testRunner.And("I have a Food product with the SKU 7506987 called \"Berries\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I have a Food Item with the SKU 7506987 called \"Berries\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
- testRunner.And("\"James\" has no favorited products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("\"James\" has no favorited Food Items", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
- testRunner.When("\"James\" favorites the product 7506987", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("\"James\" favorites the Food Item 7506987", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
- testRunner.Then("\"James\" should have 1 favorited products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("\"James\" should have 1 favorited Food Items", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Favoriting an additional product")]
-        public virtual void FavoritingAnAdditionalProduct()
+        [NUnit.Framework.DescriptionAttribute("Favoriting an additional Food Item")]
+        public virtual void FavoritingAnAdditionalFoodItem()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Favoriting an additional product", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Favoriting an additional Food Item", ((string[])(null)));
 #line 13
 this.ScenarioSetup(scenarioInfo);
 #line 14
  testRunner.Given("I have a Person called \"Maria\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 15
- testRunner.And("I have a Food product with the SKU 7584736 called \"Snickers\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I have a Food Item with the SKU 7584736 called \"Snickers\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
- testRunner.And("I have a Food product with the SKU 7501919 called \"Porridge Oats\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I have a Food Item with the SKU 7501919 called \"Porridge Oats\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
- testRunner.And("\"Maria\" has favorited the product 7584736", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("\"Maria\" has favorited the Food Item 7584736", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
- testRunner.When("\"Maria\" favorites the product 7501919", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("\"Maria\" favorites the Food Item 7501919", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 19
- testRunner.Then("\"Maria\" should have 2 favorited products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("\"Maria\" should have 2 favorited Food Items", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Favoriting a product that is already favorited")]
-        public virtual void FavoritingAProductThatIsAlreadyFavorited()
+        [NUnit.Framework.DescriptionAttribute("Favoriting a Food Item that is already favorited")]
+        public virtual void FavoritingAFoodItemThatIsAlreadyFavorited()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Favoriting a product that is already favorited", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Favoriting a Food Item that is already favorited", ((string[])(null)));
 #line 21
 this.ScenarioSetup(scenarioInfo);
 #line 22
  testRunner.Given("I have a Person called \"Libby\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 23
- testRunner.And("I have a Food product with the SKU 7506572 called \"Brown Rice\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I have a Food Item with the SKU 7506572 called \"Brown Rice\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 24
- testRunner.And("\"Libby\" has favorited the product 7506572", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("\"Libby\" has favorited the Food Item 7506572", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 25
- testRunner.When("\"Libby\" tries to favorite the product 7506572", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("\"Libby\" tries to favorite the Food Item 7506572", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 26
- testRunner.Then("\"Libby\" should have 1 favorited products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("\"Libby\" should have 1 favorited Food Items", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Favoriting a product that is not in the Food Category")]
-        public virtual void FavoritingAProductThatIsNotInTheFoodCategory()
+        [NUnit.Framework.DescriptionAttribute("UnFavoriting a Food Item")]
+        public virtual void UnFavoritingAFoodItem()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Favoriting a product that is not in the Food Category", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UnFavoriting a Food Item", ((string[])(null)));
 #line 28
 this.ScenarioSetup(scenarioInfo);
 #line 29
- testRunner.Given("I have a Person called \"Emma\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have a Person called \"Peter\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 30
- testRunner.And("I have a Electrical product with the SKU 7516123 called \"Duracel Batteries\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I have a Food Item with the SKU 7506767 called \"Granny Smith Apple\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 31
- testRunner.And("\"Emma\" has no favorited products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("\"Peter\" has favorited the Food Item 7506767", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 32
- testRunner.When("\"Emma\" tries to favorite the product 7516123", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("\"Peter\" unfavorites the Food Item 7506767", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 33
- testRunner.Then("\"Emma\" should have 0 favorited products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("\"Peter\" should have 0 favorited Food Items", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("UnFavoriting a product")]
-        public virtual void UnFavoritingAProduct()
+        [NUnit.Framework.DescriptionAttribute("UnFavoriting a Food Item that is not favourited")]
+        public virtual void UnFavoritingAFoodItemThatIsNotFavourited()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UnFavoriting a product", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UnFavoriting a Food Item that is not favourited", ((string[])(null)));
 #line 35
 this.ScenarioSetup(scenarioInfo);
 #line 36
- testRunner.Given("I have a Person called \"Peter\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 37
- testRunner.And("I have a Food product with the SKU 7506767 called \"Granny Smith Apple\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 38
- testRunner.And("\"Peter\" has favorited the product 7506767", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 39
- testRunner.When("\"Peter\" unfavorites the product 7506767", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 40
- testRunner.Then("\"Peter\" should have 0 favorited products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("UnFavoriting a product that is not favourited")]
-        public virtual void UnFavoritingAProductThatIsNotFavourited()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UnFavoriting a product that is not favourited", ((string[])(null)));
-#line 42
-this.ScenarioSetup(scenarioInfo);
-#line 43
  testRunner.Given("I have a Person called \"Aaron\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 44
- testRunner.And("I have a Food product with the SKU 7523461 called \"Kitkat\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 45
- testRunner.And("I have a Food product with the SKU 7584736 called \"Green Grapes\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 46
- testRunner.And("\"Aaron\" has favorited the product 7523461", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 47
- testRunner.When("\"Aaron\" tries to unfavorite the product 7584736", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 48
- testRunner.Then("\"Aaron\" should have 1 favorited products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 37
+ testRunner.And("I have a Food Item with the SKU 7523461 called \"Kitkat\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 38
+ testRunner.And("I have a Food Item with the SKU 7584736 called \"Green Grapes\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 39
+ testRunner.And("\"Aaron\" has favorited the Food Item 7523461", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 40
+ testRunner.When("\"Aaron\" tries to unfavorite the Food Item 7584736", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 41
+ testRunner.Then("\"Aaron\" should have 1 favorited Food Items", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

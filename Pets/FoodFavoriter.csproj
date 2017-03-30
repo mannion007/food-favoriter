@@ -43,13 +43,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\Domain\Product.cs" />
+    <Compile Include="src\Domain\FoodItem.cs" />
     <Compile Include="src\Domain\Person.cs" />
     <Compile Include="src\Domain\IPersonRepository.cs" />
     <Compile Include="src\Infrastructure\Storage\InMemoryPersonRepositoryAdapter.cs" />
     <Compile Include="src\Service\FavoriterService.cs" />
     <Compile Include="src\Domain\IProductRepository.cs" />
-    <Compile Include="src\Infrastructure\Storage\InMemoryProductRepositoryAdapter.cs" />
+    <Compile Include="src\Infrastructure\Storage\InMemoryFoodItemRepositoryAdapter.cs" />
     <Compile Include="src\Program.cs" />
     <Compile Include="src\Infrastructure\Storage\EntityFramework\EntityFrameworkPersonRepositoryAdapter.cs" />
     <Compile Include="src\Infrastructure\Storage\EntityFramework\PersonEntityConfiguration.cs" />

@@ -5,27 +5,27 @@ namespace FoodFavoriter.Service
 	public class FavoriterService
 	{
 		readonly IPersonRepository personRepository;
-		readonly IProductRepository productRepository;
+		readonly IFoodItemRepository foodItemRepository;
 
-		public FavoriterService(IPersonRepository personRepository, IProductRepository productRepository)
+		public FavoriterService(IPersonRepository personRepository, IFoodItemRepository foodItemRepository)
 		{
 			this.personRepository = personRepository;
-			this.productRepository = productRepository;
+			this.foodItemRepository = foodItemRepository;
 		}
 
 		public void FavouriteFoodItem(string personName, int sku)
 		{
 			var person = personRepository.FindPersonWithName(personName);
-			var productToFavorite = productRepository.FindProductWithSku(sku);
-			person.FavoriteProduct(productToFavorite);
+			var foodItem = foodItemRepository.FindFoodItemWithSku(sku);
+			person.Favorite(foodItem);
 			personRepository.Save(person);
 		}
 
 		public void UnFavouriteFoodItem(string personName, int sku)
 		{
 			var person = personRepository.FindPersonWithName(personName);
-			var productToUnFavorite = productRepository.FindProductWithSku(sku);
-			person.UnFavoriteProduct(productToUnFavorite);
+			var foodItem = foodItemRepository.FindFoodItemWithSku(sku);
+			person.UnFavorite(foodItem);
 			personRepository.Save(person);
 		}
 	}
