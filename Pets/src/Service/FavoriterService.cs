@@ -1,5 +1,4 @@
-﻿using System;
-using FoodFavoriter.Domain;
+﻿using FoodFavoriter.Domain;
 
 namespace FoodFavoriter.Service
 {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FoodFavoriter.Domain
+﻿namespace FoodFavoriter.Domain
 {
 	public interface IProductRepository
 	{
