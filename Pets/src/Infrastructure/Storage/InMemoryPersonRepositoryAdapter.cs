@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using FoodFavoriter.Domain;
 
-namespace FoodFavoriter
+namespace FoodFavoriter.Infrastructure.Storage
 {
 	public class InMemoryPersonRepositoryAdapter : IPersonRepository
 	{
-		private List<Person> people = new List<Person> { };
+		readonly List<Person> people = new List<Person> { };
 
 		public Person FindPersonWithName(string name)
 		{
-			var person = this.people.Find(result => result.name == name);
+			var person = people.Find(result => result.Name == name);
 
 			if (person != null)
 			{

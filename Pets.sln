@@ -1,9 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pets", "Pets\Pets.csproj", "{2C71593C-91F9-45BE-93C9-821A2709D263}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFavoriter", "Pets\FoodFavoriter.csproj", "{2C71593C-91F9-45BE-93C9-821A2709D263}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pets.Specs", "Pets.Specs\Pets.Specs.csproj", "{39F558F4-C24B-4814-83BD-EF658007E289}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFavoriter.Specs", "Pets.Specs\FoodFavoriter.Specs.csproj", "{39F558F4-C24B-4814-83BD-EF658007E289}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

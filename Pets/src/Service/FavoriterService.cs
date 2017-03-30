@@ -1,6 +1,7 @@
 ﻿using System;
+using FoodFavoriter.Domain;
 
-namespace FoodFavoriter
+namespace FoodFavoriter.Service
 {
 	public class FavoriterService
 	{

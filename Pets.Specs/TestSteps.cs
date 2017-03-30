@@ -1,17 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 
 using TechTalk.SpecFlow;
 using NUnit.Framework;
-using FoodFavoriter;
+
+using FoodFavoriter.Domain;
+using FoodFavoriter.Infrastructure.Storage;
 
 namespace Pets.Specs
 {
 	[Binding]
 	public class TestSteps
 	{
-		private readonly IPersonRepository personRepository = new InMemoryPersonRepositoryAdapter();
-		private readonly IProductRepository productRepository = new InMemoryProductRepositoryAdapter();
+		readonly IPersonRepository personRepository = new InMemoryPersonRepositoryAdapter();
+		readonly IProductRepository productRepository = new InMemoryProductRepositoryAdapter();
 
 		[Given(@"I have a Person called ""(.*)""")]
 		public void GivenIHaveAPersonCalled(string name)
@@ -22,7 +23,7 @@ namespace Pets.Specs
 		[Given(@"I have a (.*) product with the SKU (.*) called ""(.*)""")]
 		public void GivenIHaveAProductWithTheSKUCalled(string productType, int sku, string name)
 		{
-			var product = new Product(sku, name, (Product.productType)Enum.Parse(typeof(Product.productType), productType, true));
+			Product product = new Product(sku, name, (Product.ProductType)Enum.Parse(typeof(Product.ProductType), productType, true));
 			productRepository.Save(product);
 		}
 
@@ -49,7 +50,7 @@ namespace Pets.Specs
 		public void ThenSomeoneShouldHaveFavoritedProducts(string name, int expectedFavoriteCount)
 		{
 			var personCandidate = personRepository.FindPersonWithName(name);
-			Assert.AreEqual(expectedFavoriteCount, personCandidate.favorites.Count);
+			Assert.AreEqual(expectedFavoriteCount, personCandidate.Favorites.Count);
 		}
 
 		[Given(@"""(.*)"" has favorited the product (.*)")]

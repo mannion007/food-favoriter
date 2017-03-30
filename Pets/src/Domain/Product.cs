@@ -1,26 +1,27 @@
 ﻿using System;
 
-namespace FoodFavoriter
+namespace FoodFavoriter.Domain
 {
 	public class Product: IEquatable<Product>
 	{
-		public enum productType { Food, Electrical }
+		public enum ProductType { Food, Electrical }
 
-		public int sku;
-		public string name;
-		public productType category { get; }
+		public int Sku;
 
-		public Product(int sku, string name, productType category)
+		public string Name;
+
+		public ProductType Category { get; }
+
+		public Product(int sku, string name, ProductType category)
 		{
-			this.sku = sku;
-			this.category = category;
-			this.name = name;
+			Sku = sku;
+			Name = name;
+			Category = category;
 		}
 
-		public bool Equals(Product other)
+		public bool Equals(Product Other)
 		{
-			return sku == other.sku;
+			return Sku == Other.Sku;
 		}
-
 	}
 }

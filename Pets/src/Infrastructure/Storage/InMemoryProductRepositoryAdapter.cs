@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using FoodFavoriter.Domain;
 
-namespace FoodFavoriter
+namespace FoodFavoriter.Infrastructure.Storage
 {
 	public class InMemoryProductRepositoryAdapter : IProductRepository
 	{
-		private List<Product> products = new List<Product> { };
+		readonly List<Product> products = new List<Product> { };
 
 		public Product FindProductWithSku(int sku)
 		{
-			var product = this.products.Find(result => result.sku == sku);
+			var product = this.products.Find(result => result.Sku == sku);
 
 			if (product != null)
 			{
