@@ -56,7 +56,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Pets\FoodFavoriter.csproj">
+    <ProjectReference Include="..\FoodFavoriter\FoodFavoriter.csproj">
       <Project>{2C71593C-91F9-45BE-93C9-821A2709D263}</Project>
       <Name>FoodFavoriter</Name>
     </ProjectReference>
