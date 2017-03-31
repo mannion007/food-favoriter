@@ -4,7 +4,7 @@ using FoodFavoriter.Domain;
 
 namespace FoodFavoriter.Infrastructure.Storage
 {
-	public class InMemoryFoodItemRepositoryAdapter : IFoodItemRepository
+	public class InMemoryFoodItemRepositoryAdapter : IStoreFoodItems
 	{
 		readonly List<FoodItem> foodItems = new List<FoodItem> { };
 

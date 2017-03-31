@@ -8,8 +8,8 @@ namespace FoodFavoriter.Configuration.DependencyInjection
 	{
 		public override void Load()
 		{
-			Bind<IPersonRepository>().To<InMemoryPersonRepositoryAdapter>();
-			Bind<IFoodItemRepository>().To<InMemoryFoodItemRepositoryAdapter>();
+			Bind<IStorePeople>().To<InMemoryPersonRepositoryAdapter>();
+			Bind<IStoreFoodItems>().To<InMemoryFoodItemRepositoryAdapter>();
 		}
 	}
 }

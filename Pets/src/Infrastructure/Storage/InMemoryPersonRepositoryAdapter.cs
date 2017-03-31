@@ -4,20 +4,20 @@ using FoodFavoriter.Domain;
 
 namespace FoodFavoriter.Infrastructure.Storage
 {
-	public class InMemoryPersonRepositoryAdapter : IPersonRepository
+	public class InMemoryPersonRepositoryAdapter : IStorePeople
 	{
 		readonly List<Person> people = new List<Person> { };
 
-		public Person FindPersonWithName(string name)
+		public Person FindPersonWithReference(PersonReference reference)
 		{
-			var person = people.Find(result => result.Name == name);
+			var person = people.Find(p => p.Reference.Equals(reference));
 
 			if (person != null)
 			{
 				return person;
 			}
 
-			throw new ArgumentException("Unable to find person");
+			throw new ArgumentException("Unable to find person with reference " + reference);
 		}
 
 		public void Save(Person person)

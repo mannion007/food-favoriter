@@ -3,30 +3,30 @@ using FoodFavoriter.Domain;
 
 namespace FoodFavoriter.Infrastructure.Storage.EntityFramework
 {
-	public class EntityFrameworkPersonRepositoryAdapter : IPersonRepository
+	public class EntityFrameworkPersonRepositoryAdapter : IStorePeople
 	{
 		readonly FoodFavoritingContext context = new FoodFavoritingContext();
 
-		public Person FindPersonWithName(string name)
+		public Person FindPersonWithReference(PersonReference reference)
 		{
-			var personWithName = context.People.Find(name);
+			var person = context.People.Find(reference);
 
-			if (personWithName != null)
+			if (person != null)
 			{
-				return personWithName;
+				return person;
 			}
 
-			throw new ArgumentException("Could not find person");
+			throw new ArgumentException("Could not find person with reference " + reference);
 		}
 
 
 		public void Save(Person person)
 		{
-			var personWithName = context.People.Find(person.Name);
+			var existingPerson = context.People.Find(person.Reference);
 
-			if (personWithName != null)
+			if (existingPerson != null)
 			{
-				context.People.Remove(personWithName);
+				context.People.Remove(existingPerson);
 			}
 
 			context.People.Add(person);

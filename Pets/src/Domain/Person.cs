@@ -5,12 +5,15 @@ namespace FoodFavoriter.Domain
 {
 	public class Person
 	{
+		public PersonReference Reference { get; private set; }
+
 		public string Name { get; private set; }
 
 		public List<FoodItem> Favorites = new List<FoodItem> { };
 
-		public Person(string name)
+		public Person(PersonReference reference, string name)
 		{
+			Reference = reference;
 			Name = name;
 		}
 

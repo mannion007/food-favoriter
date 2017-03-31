@@ -45,16 +45,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Domain\FoodItem.cs" />
     <Compile Include="src\Domain\Person.cs" />
-    <Compile Include="src\Domain\IPersonRepository.cs" />
+    <Compile Include="src\Domain\IStorePeople.cs" />
     <Compile Include="src\Infrastructure\Storage\InMemoryPersonRepositoryAdapter.cs" />
     <Compile Include="src\Service\FavoriterService.cs" />
-    <Compile Include="src\Domain\IProductRepository.cs" />
+    <Compile Include="src\Domain\IStoreFoodItems.cs" />
     <Compile Include="src\Infrastructure\Storage\InMemoryFoodItemRepositoryAdapter.cs" />
     <Compile Include="src\Program.cs" />
     <Compile Include="src\Infrastructure\Storage\EntityFramework\EntityFrameworkPersonRepositoryAdapter.cs" />
     <Compile Include="src\Infrastructure\Storage\EntityFramework\PersonEntityConfiguration.cs" />
     <Compile Include="src\Infrastructure\Storage\EntityFramework\FoodFavoritingContext.cs" />
     <Compile Include="src\Configuration\DependencyInjection\Bindings.cs" />
+    <Compile Include="src\Domain\PersonReference.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

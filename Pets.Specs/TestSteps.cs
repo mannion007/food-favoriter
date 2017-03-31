@@ -11,13 +11,13 @@ namespace Pets.Specs
 	[Binding]
 	public class TestSteps
 	{
-		readonly IPersonRepository personRepository = new InMemoryPersonRepositoryAdapter();
-		readonly IFoodItemRepository foodItemRepository = new InMemoryFoodItemRepositoryAdapter();
+		readonly IStorePeople personRepository = new InMemoryPersonRepositoryAdapter();
+		readonly IStoreFoodItems foodItemRepository = new InMemoryFoodItemRepositoryAdapter();
 
-		[Given(@"I have a Person called ""(.*)""")]
-		public void GivenIHaveAPersonCalled(string name)
+		[Given(@"I have a Person with the reference ""(.*)"" named ""(.*)""")]
+		public void GivenIHaveAPersonCalled(string reference, string name)
 		{
-			personRepository.Save(new Person(name));
+			personRepository.Save(new Person(PersonReference.FromExisting(reference), name));
 		}
 
 		[Given(@"I have a Food Item with the SKU (.*) called ""(.*)""")]
@@ -27,15 +27,15 @@ namespace Pets.Specs
 			foodItemRepository.Save(foodItem);
 		}
 
-		[Given(@"""(.*)"" has no favorited Food Items")]
+		[Given(@"Person ""(.*)"" has no favorited Food Items")]
 		public void GivenSomeoneHasNoFavoritedFoodItems(string customerName)
 		{
 		}
 
-		[When(@"""(.*)"" tries to favorite the Food Item (.*)")]
-		public void WhenSomeoneTriesToFavoriteTheFoodItem(string name, int sku)
+		[When(@"Person ""(.*)"" tries to favorite the Food Item (.*)")]
+		public void WhenSomeoneTriesToFavoriteTheFoodItem(string reference, int sku)
 		{
-			var person = personRepository.FindPersonWithName(name);
+			var person = personRepository.FindPersonWithReference(PersonReference.FromExisting(reference));
 			var foodItem = foodItemRepository.FindFoodItemWithSku(sku);
 			try
 			{
@@ -45,41 +45,41 @@ namespace Pets.Specs
 		}
 
 
-		[Then(@"""(.*)"" should have (.*) favorited Food Items")]
-		public void ThenSomeoneShouldHaveFavoritedFoodItems(string name, int expectedFavoriteCount)
+		[Then(@"Person ""(.*)"" should have (.*) favorited Food Items")]
+		public void ThenSomeoneShouldHaveFavoritedFoodItems(string reference, int expectedFavoriteCount)
 		{
-			var personCandidate = personRepository.FindPersonWithName(name);
+			var personCandidate = personRepository.FindPersonWithReference(PersonReference.FromExisting(reference));
 			Assert.AreEqual(expectedFavoriteCount, personCandidate.Favorites.Count);
 		}
 
-		[Given(@"""(.*)"" has favorited the Food Item (.*)")]
-		public void GivenSomeoneHasFavorited(string name, int sku)
+		[Given(@"Person ""(.*)"" has favorited the Food Item (.*)")]
+		public void GivenSomeoneHasFavorited(string reference, int sku)
 		{
-			var person = personRepository.FindPersonWithName(name);
+			var person = personRepository.FindPersonWithReference(PersonReference.FromExisting(reference));
 			var foodItem = foodItemRepository.FindFoodItemWithSku(sku);
 			person.Favorite(foodItem);
 		}
 
-		[When(@"""(.*)"" favorites the Food Item (.*)")]
-		public void WhenSomeoneFavoritesTheFoodItem(string name, int sku)
+		[When(@"Person ""(.*)"" favorites the Food Item (.*)")]
+		public void WhenSomeoneFavoritesTheFoodItem(string reference, int sku)
 		{
-			var person = personRepository.FindPersonWithName(name);
+			var person = personRepository.FindPersonWithReference(PersonReference.FromExisting(reference));
 			var foodItem = foodItemRepository.FindFoodItemWithSku(sku);
 			person.Favorite(foodItem);
 		}
 
-		[When(@"""(.*)"" unfavorites the Food Item (.*)")]
-		public void WhenUnfavoritesTheFoodItem(string name, int sku)
+		[When(@"Person ""(.*)"" unfavorites the Food Item (.*)")]
+		public void WhenUnfavoritesTheFoodItem(string reference, int sku)
 		{
-			var person = personRepository.FindPersonWithName(name);
+			var person = personRepository.FindPersonWithReference(PersonReference.FromExisting(reference));
 			var foodItem = foodItemRepository.FindFoodItemWithSku(sku);
 			person.UnFavorite(foodItem);
 		}
 
-		[When(@"""(.*)"" tries to unfavorite the Food Item (.*)")]
-		public void WhenSomeoneTriesToUnfavoriteTheFoodItem(string name, int sku)
+		[When(@"Person ""(.*)"" tries to unfavorite the Food Item (.*)")]
+		public void WhenSomeoneTriesToUnfavoriteTheFoodItem(string reference, int sku)
 		{
-			var person = personRepository.FindPersonWithName(name);
+			var person = personRepository.FindPersonWithReference(PersonReference.FromExisting(reference));
 			var foodItem = foodItemRepository.FindFoodItemWithSku(sku);
 			try
 			{

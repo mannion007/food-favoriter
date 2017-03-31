@@ -7,7 +7,7 @@ namespace FoodFavoriter.Infrastructure.Storage.EntityFramework
 	{
 		public PersonEntityConfiguration()
 		{
-			this.HasKey(p => p.Name);
+			HasKey(p => p.Reference);
 		}
 	}
 }
