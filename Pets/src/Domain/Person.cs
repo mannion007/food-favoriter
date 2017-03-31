@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using FoodFavoriter.Infrastructure.DomainEvent;
 
 namespace FoodFavoriter.Domain
 {
@@ -9,7 +10,7 @@ namespace FoodFavoriter.Domain
 
 		public string Name { get; private set; }
 
-		public List<FoodItem> Favorites = new List<FoodItem> { };
+		public List<FoodItem> Favorites { get; private set; }= new List<FoodItem> { };
 
 		public Person(PersonReference reference, string name)
 		{
@@ -17,24 +18,35 @@ namespace FoodFavoriter.Domain
 			Name = name;
 		}
 
+		public Person(PersonReference reference, string name, List<FoodItem> favorites)
+		{
+			Reference = reference;
+			Name = name;
+			Favorites = favorites;
+		}
+
 		public void Favorite(FoodItem foodItem)
 		{
 			if (Favorites.Contains(foodItem))
 			{
-				throw new ArgumentException("Cannot favorite an product that is already in favorites");
+				throw new ArgumentException("Cannot favorite a Food Item that is already in favorites");
 			}
 
 			Favorites.Add(foodItem);
+
+			DomainEvents.Raise(new PersonFavoritedFoodItemEvent(this, foodItem));
 		}
 
 		public void UnFavorite(FoodItem foodItem)
 		{
 			if (!Favorites.Contains(foodItem))
 			{
-				throw new ArgumentException("Cannot unfavorite an item that is not in favorites");
+				throw new ArgumentException("Cannot unfavorite a Food Item that is not in favorites");
 			}
 
 			Favorites.Remove(foodItem);
+
+			DomainEvents.Raise(new PersonUnFavoritedFoodItemEvent(this, foodItem));
 		}
 	}
 }

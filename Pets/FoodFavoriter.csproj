@@ -56,6 +56,10 @@
     <Compile Include="src\Infrastructure\Storage\EntityFramework\FoodFavoritingContext.cs" />
     <Compile Include="src\Configuration\DependencyInjection\Bindings.cs" />
     <Compile Include="src\Domain\PersonReference.cs" />
+    <Compile Include="src\Library\Interface\IDomainEvent.cs" />
+    <Compile Include="src\Domain\PersonFavoritedFoodItemEvent.cs" />
+    <Compile Include="src\Infrastructure\DomainEvent\DomainEvents.cs" />
+    <Compile Include="src\Domain\PersonUnFavoritedFoodItemEvent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -70,6 +74,9 @@
     <Folder Include="src\Infrastructure\Storage\EntityFramework\" />
     <Folder Include="src\Configuration\" />
     <Folder Include="src\Configuration\DependencyInjection\" />
+    <Folder Include="src\Library\" />
+    <Folder Include="src\Library\Interface\" />
+    <Folder Include="src\Infrastructure\DomainEvent\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

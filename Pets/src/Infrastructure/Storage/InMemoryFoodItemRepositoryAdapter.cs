@@ -10,12 +10,12 @@ namespace FoodFavoriter.Infrastructure.Storage
 
 		public FoodItem FindFoodItemWithSku(int sku)
 		{
-			var product = this.foodItems.Find(result => result.Sku == sku);
+			var product = foodItems.Find(f => f.Sku == sku);
 			if (product != null)
 			{
 				return product;
 			}
-			throw new ArgumentException("Unable to find product");
+			throw new ArgumentException("Unable to find product with SKU " + sku);
 		}
 
 		public void Save(FoodItem foodItem)

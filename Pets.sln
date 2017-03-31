@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFavoriter", "Pets\FoodF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFavoriter.Specs", "Pets.Specs\FoodFavoriter.Specs.csproj", "{39F558F4-C24B-4814-83BD-EF658007E289}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFavoriter.Unit", "FoodFavoriter.UnitTests\FoodFavoriter.Unit.csproj", "{03A48225-DA84-4ABB-88DF-4E6CA2553E45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,5 +21,9 @@ Global
 		{39F558F4-C24B-4814-83BD-EF658007E289}.Debug|x86.Build.0 = Debug|Any CPU
 		{39F558F4-C24B-4814-83BD-EF658007E289}.Release|x86.ActiveCfg = Release|Any CPU
 		{39F558F4-C24B-4814-83BD-EF658007E289}.Release|x86.Build.0 = Release|Any CPU
+		{03A48225-DA84-4ABB-88DF-4E6CA2553E45}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{03A48225-DA84-4ABB-88DF-4E6CA2553E45}.Debug|x86.Build.0 = Debug|Any CPU
+		{03A48225-DA84-4ABB-88DF-4E6CA2553E45}.Release|x86.ActiveCfg = Release|Any CPU
+		{03A48225-DA84-4ABB-88DF-4E6CA2553E45}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
