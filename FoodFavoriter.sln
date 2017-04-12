@@ -1,11 +1,13 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFavoriter", "FoodFavoriter\FoodFavoriter.csproj", "{2C71593C-91F9-45BE-93C9-821A2709D263}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFavoriter.Domain", "FoodFavoriter\FoodFavoriter.Domain.csproj", "{2C71593C-91F9-45BE-93C9-821A2709D263}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFavoriter.Specs", "FoodFavoriter.Specs\FoodFavoriter.Specs.csproj", "{39F558F4-C24B-4814-83BD-EF658007E289}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFavoriter.Unit", "FoodFavoriter.UnitTests\FoodFavoriter.Unit.csproj", "{03A48225-DA84-4ABB-88DF-4E6CA2553E45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFavoriter.Api", "FoodFavoriterApi\FoodFavoriter.Api.csproj", "{75C7396B-242F-4F8A-8E9D-C454849AD0A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,5 +27,9 @@ Global
 		{03A48225-DA84-4ABB-88DF-4E6CA2553E45}.Debug|x86.Build.0 = Debug|Any CPU
 		{03A48225-DA84-4ABB-88DF-4E6CA2553E45}.Release|x86.ActiveCfg = Release|Any CPU
 		{03A48225-DA84-4ABB-88DF-4E6CA2553E45}.Release|x86.Build.0 = Release|Any CPU
+		{75C7396B-242F-4F8A-8E9D-C454849AD0A6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{75C7396B-242F-4F8A-8E9D-C454849AD0A6}.Debug|x86.Build.0 = Debug|Any CPU
+		{75C7396B-242F-4F8A-8E9D-C454849AD0A6}.Release|x86.ActiveCfg = Release|Any CPU
+		{75C7396B-242F-4F8A-8E9D-C454849AD0A6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

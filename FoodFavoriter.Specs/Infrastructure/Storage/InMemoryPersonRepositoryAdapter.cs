@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using FoodFavoriter.Domain;
 
-namespace FoodFavoriter.Infrastructure.Storage
+namespace FoodFavoriter.Specs.Infrastructure.Storage
 {
 	public class InMemoryPersonRepositoryAdapter : IStorePeople
 	{
 		readonly List<Person> people = new List<Person> { };
+
+		public InMemoryPersonRepositoryAdapter()
+		{
+			people.Add(new Person(PersonReference.FromExisting("ref-001"), "James"));
+		}
+
 
 		public Person FindPersonWithReference(PersonReference reference)
 		{
@@ -17,7 +23,7 @@ namespace FoodFavoriter.Infrastructure.Storage
 				return person;
 			}
 
-			throw new ArgumentException("Unable to find person with reference " + reference);
+			throw new ArgumentException("Unable to find person with reference");
 		}
 
 		public void Save(Person person)

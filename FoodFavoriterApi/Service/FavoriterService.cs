@@ -1,6 +1,6 @@
 ﻿using FoodFavoriter.Domain;
 
-namespace FoodFavoriter.Service
+namespace FoodFavoriter.Api.Service
 {
 	public class FavoriterService
 	{

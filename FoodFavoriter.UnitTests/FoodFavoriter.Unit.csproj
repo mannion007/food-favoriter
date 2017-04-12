@@ -41,9 +41,9 @@
     <Folder Include="Tests\Domain\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FoodFavoriter\FoodFavoriter.csproj">
+    <ProjectReference Include="..\FoodFavoriter\FoodFavoriter.Domain.csproj">
       <Project>{2C71593C-91F9-45BE-93C9-821A2709D263}</Project>
-      <Name>FoodFavoriter</Name>
+      <Name>FoodFavoriter.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

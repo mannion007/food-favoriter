@@ -13,8 +13,8 @@ namespace FoodFavoriter.Unit.Tests.Domain
 			var person = new Person(PersonReference.FromExisting("ref-001"), "Homer");
 			var foodItem = new FoodItem(7463928, "Extra Strong Concentrated Squishee Syrup");
 			PersonFavoritedFoodItemEvent raisedEvent = null;
-
 			DomainEvents.Register<PersonFavoritedFoodItemEvent>((obj) => raisedEvent = (obj));
+
 			person.Favorite(foodItem);
 
 			Assert.IsInstanceOf(typeof(PersonFavoritedFoodItemEvent), raisedEvent);
@@ -28,6 +28,7 @@ namespace FoodFavoriter.Unit.Tests.Domain
 			var person = new Person(PersonReference.FromExisting("ref-001"), "Homer");
 			var foodItem = new FoodItem(7463928, "Extra Strong Concentrated Squishee Syrup");
 			PersonUnFavoritedFoodItemEvent raisedEvent = null;
+
 			person.Favorite(foodItem);
 
 			DomainEvents.Register<PersonUnFavoritedFoodItemEvent>((obj) => raisedEvent = (obj));

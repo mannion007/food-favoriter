@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using FoodFavoriter.Infrastructure.DomainEvent;
 
+using Newtonsoft.Json;
+
 namespace FoodFavoriter.Domain
 {
 	public class Person
 	{
 		public PersonReference Reference { get; private set; }
 
-		public string Name { get; private set; }
+		[JsonProperty()]
+		readonly string Name;
 
-		public List<FoodItem> Favorites { get; private set; }= new List<FoodItem> { };
+		[JsonProperty()]
+		readonly List<FoodItem> Favorites = new List<FoodItem> { };
 
 		public Person(PersonReference reference, string name)
 		{
@@ -18,6 +22,7 @@ namespace FoodFavoriter.Domain
 			Name = name;
 		}
 
+		[JsonConstructor]
 		public Person(PersonReference reference, string name, List<FoodItem> favorites)
 		{
 			Reference = reference;

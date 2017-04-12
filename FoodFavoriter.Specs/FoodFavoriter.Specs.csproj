@@ -33,13 +33,8 @@
       <HintPath>..\packages\SpecFlow.2.1.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Entity" />
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.IO.Compression" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -47,6 +42,7 @@
     <None Include="FavoritingProducts.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FavoritingProducts.feature.cs</LastGenOutput>
+      <IncludeInPackage>false</IncludeInPackage>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -54,11 +50,20 @@
     <Compile Include="FavoritingProducts.feature.cs">
       <DependentUpon>FavoritingProducts.feature</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Storage\InMemoryFoodItemRepositoryAdapter.cs" />
+    <Compile Include="Infrastructure\Storage\InMemoryPersonRepositoryAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FoodFavoriter\FoodFavoriter.csproj">
+    <Folder Include="Infrastructure\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FoodFavoriter\FoodFavoriter.Domain.csproj">
       <Project>{2C71593C-91F9-45BE-93C9-821A2709D263}</Project>
-      <Name>FoodFavoriter</Name>
+      <Name>FoodFavoriter.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FoodFavoriterApi\FoodFavoriter.Api.csproj">
+      <Project>{75C7396B-242F-4F8A-8E9D-C454849AD0A6}</Project>
+      <Name>FoodFavoriter.Api</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -2,11 +2,13 @@
 using System.Reflection;
 using FoodFavoriter.Domain;
 
-namespace FoodFavoriter.Infrastructure.Storage.EntityFramework
+namespace FoodFavoriter.Api.Repositories.EntityFramework
 {
 	public class FoodFavoritingContext : DbContext
 	{
 		public DbSet<Person> People { get; set; }
+
+		public DbSet<FoodItem> FoodItems { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{

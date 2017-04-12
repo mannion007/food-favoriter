@@ -1,9 +1,9 @@
 ﻿using System;
 using FoodFavoriter.Domain;
 
-namespace FoodFavoriter.Infrastructure.Storage.EntityFramework
+namespace FoodFavoriter.Api.Repositories.EntityFramework
 {
-	public class EntityFrameworkPersonRepositoryAdapter : IStorePeople
+	public class EntityFrameworkPersonRepository : IStorePeople
 	{
 		readonly FoodFavoritingContext context = new FoodFavoritingContext();
 
@@ -16,7 +16,7 @@ namespace FoodFavoriter.Infrastructure.Storage.EntityFramework
 				return person;
 			}
 
-			throw new ArgumentException("Could not find person with reference " + reference);
+			throw new ArgumentException("Could not find person with reference");
 		}
 
 
